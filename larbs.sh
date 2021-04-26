@@ -52,13 +52,13 @@ usercheck() { \
 	}
 
 preinstallmsg() { \
-	dialog --title "Ok, Zoomers. Let's get this Victory Royal!" --yes-label "Let's go!" --no-label "No, nevermind!" --yesno "The rest of the installation will now be totally automated. I recommend all users to go get a nice cup of joe..\n\n..perhaps a bagel.\\n\\nIt will take some time, but when done, you can relax a whole lot less considering I probably cucked your system.\\n\\nNow just press <Let's go!> and the system will begin installation!" 13 60 || { clear; exit 1; }
+	dialog --title "Ok, Zoomers. Let's get this Victory Royal!" --yes-label "Let's go!" --no-label "No, nevermind!" --yesno "The rest of the installation will now be totally automated. I recommend all users to go get a nice cup of joe..\n..perhaps a bagel.\\n\\nIt will take some time, but when done, you can relax a whole lot less considering I probably cucked your system.\\n\\nNow just press <Let's go!> and the system will begin installation!" 13 60 || { clear; exit 1; }
 	}
 
 adduserandpass() { \
 	# Adds user `$name` with password $pass1.
 	dialog --infobox "Adding user \"$name\"..." 4 50
-	useradd -m -g wheel -s /bin/zsh "$name" >/dev/null 2>&1 ||
+	useradd -m -g wheel -s /bin/bash "$name" >/dev/null 2>&1 ||
 	usermod -a -G wheel "$name" && mkdir -p /home/"$name" && chown "$name":wheel /home/"$name"
 	repodir="/home/$name/.local/src"; mkdir -p "$repodir"; chown -R "$name":wheel "$(dirname "$repodir")"
 	echo "$name:$pass1" | chpasswd
@@ -169,11 +169,6 @@ preinstallmsg || error "User exited."
 
 # Refresh Arch keyrings.
 refreshkeys || error "Error automatically refreshing Arch keyring. Consider doing so manually."
-
-for x in curl base-devel git ntp zsh; do
-	dialog --title "LARBS Installation" --infobox "Installing \`$x\` which is required to install and configure other programs." 5 70
-	installpkg "$x"
-done
 
 dialog --title "LARBS Installation" --infobox "Synchronizing system time to ensure successful and secure installation of software..." 4 70
 ntpdate 0.us.pool.ntp.org >/dev/null 2>&1
