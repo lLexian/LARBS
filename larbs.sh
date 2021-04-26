@@ -18,7 +18,7 @@ esac done
 [ -z "$dotfilesrepo" ] && dotfilesrepo="https://github.com/lLexian/.philes.git"
 [ -z "$progsfile" ] && progsfile="https://raw.githubusercontent.com/lLexian/LARBS/master/progs.csv"
 [ -z "$aurhelper" ] && aurhelper="yay"
-[ -z "$repobranch" ] && repobranch="master"
+[ -z "$repobranch" ] && repobranch="main"
 
 ### FUNCTIONS ###
 
