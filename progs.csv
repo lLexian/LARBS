@@ -3,7 +3,7 @@
 ,xorg-xwininfo,"allows querying information about windows."
 ,xorg-xinit,"starts the graphical server."
 ,ttf-linux-libertine,"provides the sans and serif fonts for LARBS."
-,ranger,"is an terminal file manager that everyone thinks is bloated or whatever.. I like it.."
+,ranger,"is an terminal file manager that looks good on unix porn"
 ,xorg-xprop,"is a tool for detecting window properties."
 ,dosfstools,"allows your computer to access dos-like filesystems. *sips*"
 ,exfat-utils,"allows management of FAT drives."
