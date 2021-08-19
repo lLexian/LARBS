@@ -5,7 +5,7 @@
 On an Arch-based distribution as root, run the following:
 
 ```
-curl -LO larbs.xyz/larbs.sh
+git clone https://github.com/lLexian/LARBS.git
 sh larbs.sh
 ```
 
